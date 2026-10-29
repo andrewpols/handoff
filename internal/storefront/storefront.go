@@ -1,17 +1,19 @@
 package storefront
 
 import (
-	"github.com/andrewpols/handoff/internal/models"
+	"github.com/andrewpols/handoff/internal/model"
 )
 
 type Reader interface {
-	Products(page string) []models.Product
-	Customers(page string)
-	Orders(page string)
+	Products(page string) ([]model.Product, string, error)
+	Customers(page string) ([]model.Customer, string, error)
+	Orders(page string) ([]model.Order, string, error)
 }
 
 type Writer interface {
-	Write()
+	WriteProducts([]model.Product) error
+	WriteCustomers([]model.Customer) error
+	WriteOrders([]model.Order) error
 }
 
 type Storefront interface {
