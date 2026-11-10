@@ -1,5 +1,7 @@
 package model
 
 type Order struct {
-	products []Product
+	LineItems []LineItem
+	Customer  Customer
+	Currency  string
 }
