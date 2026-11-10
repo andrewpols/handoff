@@ -1,6 +1,5 @@
 package model
 
 type Customer struct {
-	username string
-	orders   []Order
+	Email string
 }
